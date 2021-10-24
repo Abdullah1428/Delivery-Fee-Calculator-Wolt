@@ -4,20 +4,21 @@ import { fireEvent } from '@testing-library/dom'
 import Field from '../Field'
 
 describe('Field Component tests', () => {
-  const field1 = {
-    id: 'cart',
-    label: 'Cart Value',
-    placeholder: 'Cart Value',
-    type: 'number',
-    value: 10,
-  }
-
-  const field2 = {
-    id: 'cart',
-    label: 'Cart Value',
-    placeholder: 'Cart Value',
-    type: 'datetime-local',
-    value: new Date().getTime(),
+  const field = {
+    cart: {
+      id: 'cart',
+      label: 'Cart Value',
+      placeholder: 'Cart Value',
+      type: 'number',
+      value: 10,
+    },
+    time: {
+      id: 'cart',
+      label: 'Cart Value',
+      placeholder: 'Cart Value',
+      type: 'datetime-local',
+      value: new Date().getTime(),
+    },
   }
 
   let container: HTMLDivElement
@@ -28,8 +29,8 @@ describe('Field Component tests', () => {
     container2 = document.createElement('div')
     document.body.appendChild(container)
     document.body.appendChild(container2)
-    ReactDOM.render(<Field {...field1} />, container)
-    ReactDOM.render(<Field {...field2} />, container2)
+    ReactDOM.render(<Field {...field.cart} />, container)
+    ReactDOM.render(<Field {...field.time} />, container2)
   })
 
   afterEach(() => {
